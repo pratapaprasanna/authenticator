@@ -14,10 +14,14 @@ class MongoAdapters(object):
             output.append({'name': user['name'], 'email': user['email']})
         return jsonify({'result': output})
 
-    def add_users(self, name, email):
+    def add_users(self, name, email, provider):
         try:
             collection = self.client.db['users']
-            collection_id = collection.insert({'name': name, 'email': email})
-            return jsonify({'result': collection_id})
+            count = collection.count_documents({'email': email})
+            if count == 0:
+                collection_id = collection.insert(
+                    {'name': name, 'email': email, 'provider': provider})
+                return jsonify({'result': str(collection_id)})
+            return jsonify({'result': "User already signed up"})
         except Exception:
             print("ISSUE")
