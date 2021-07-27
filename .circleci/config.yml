@@ -1,0 +1,20 @@
+version: 2.1
+
+orbs:
+  python: circleci/python@1.2
+
+workflows:
+  sample:
+    jobs:
+      - lint-check
+
+jobs:
+  lint-check:
+    docker:
+      - image: cimg/python:3.8
+    steps:
+      - checkout
+      - run: |
+          pip install poetry==1.0.0
+          poetry install
+          poetry run black --check .
