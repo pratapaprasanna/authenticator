@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  authenticator:
+    image: authenticator_service_dev
+    volumes:
+      - ./:/app
+    build: .
+    environment:
+      SECRET_KEY: "b9dd1b2f"
+    ports:
+      - 5000:5000
+    networks:
+      main:
+        aliases:
+          - authenticator.svc.cluster.local
+networks:
+  main:
