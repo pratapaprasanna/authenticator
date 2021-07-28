@@ -8,6 +8,7 @@
 
 Post this start making changes to the code they should be reflected and you should be able to see them running.
 
+## User Journey
 ### Google login
  - When user wishes to sign-up
 
