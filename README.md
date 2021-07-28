@@ -4,5 +4,6 @@
  - python
 
 ### ENV setup 
-- docker run -d -p 27017:27017 -v ~/work/data:/data/db mongo
-- python app.py
+ - docker-compose up
+
+Post this start making changes to the code they should be reflected and you should be able to see them running.
