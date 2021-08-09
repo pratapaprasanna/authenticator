@@ -14,7 +14,15 @@ class MongoAdapters(object):
             output.append({"name": user["name"], "email": user["email"]})
         return jsonify({"result": output})
 
-    def add_users(self, name, email, creation_time, provider=None, user_type="user"):
+    def add_users(
+        self,
+        name,
+        email,
+        creation_time,
+        user_type="user",
+        provider=None,
+        provider_id=None,
+    ):
         try:
             collection = self.client.db["users"]
             count = collection.count_documents({"email": email})
@@ -24,6 +32,7 @@ class MongoAdapters(object):
                         "name": name,
                         "email": email,
                         "provider": provider,
+                        "provider_id": provider_id,
                         "creation_time": creation_time,
                         "user_type": user_type,
                     }
