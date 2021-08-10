@@ -8,7 +8,12 @@ In signup you have multiple ways of doing it
 
 ## Architecture or Idea
 
-![image](https://user-images.githubusercontent.com/15846947/128823887-0f20f22a-7f38-422e-aa57-fa8e0b4ce9bc.png)
+We want to go on a micro-frameworks architecture for easy plugin facility.
+
+Some other day we want to work on some idea we should be able to use this authenticator to add users.
+
+![image](https://user-images.githubusercontent.com/15846947/128824230-f5481e60-046e-4454-8ca1-801d05e0c96b.png)
+
 
 
 ### Setup Requisites
