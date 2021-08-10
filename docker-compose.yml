@@ -3,6 +3,7 @@ version: "3.7"
 services:
   authenticator:
     image: authenticator_service_dev
+    restart: always
     volumes:
       - ./:/app
     build: .

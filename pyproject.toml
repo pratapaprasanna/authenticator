@@ -20,6 +20,7 @@ google-auth-oauthlib = "^0.4.5"
 google = "^3.0.0"
 cachetools = "^4.2.2"
 CacheControl = "^0.12.6"
+"oslo.log" = "^4.6.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

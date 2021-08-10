@@ -1,5 +1,5 @@
 ## UseCase
-- Any idea or application a developer wants to develop. He has to put-in efforts to develop an authenticator using which a user signs up to the app. 
+- Any idea or application a developer wants to develop. He has to put-in efforts to develop an authenticator using which a user signs up to the app.
 - Authenticator is just that component which adds user to a db and validates if any request is coming from a person belonging to the application.
 
 In signup you have multiple ways of doing it
@@ -15,20 +15,26 @@ Some other day we want to work on some idea we should be able to use this authen
 ![image](https://user-images.githubusercontent.com/15846947/128825120-878b0e01-3bcf-4004-9add-4c4d50c60d0d.png)
 
 
-
-
 ### Setup Requisites
  - Mongo
  - docker
  - python
  - Kubernetes (Soon once the working prototype is ready)
 
-### ENV setup 
+### ENV setup
  - docker-compose up
 
 Post this start making changes to the code they should be reflected and you should be able to see them running.
 
-### Current-state: 
+### Local Setup
+
+##### Run
+
+ - ```pip install poetry```
+ - ```poetry install```
+ - ```poetry run python authenticator/app.py``
+
+### Current-state:
 In the repo you see signup with google until now. Moving forward we should add the ability to signup with facebook/twitter
 
 ## User Journey
@@ -45,6 +51,6 @@ In the repo you see signup with google until now. Moving forward we should add t
 
 - Behaviour post logging out from google/gmail or from the session
  cannot show logging out from gmail for personal reasons obviously :D
- 
+
 -![logout](https://user-images.githubusercontent.com/15846947/128707098-0c98a932-0bb9-4a51-ab6d-9d372677dc67.png)
 -![5](https://user-images.githubusercontent.com/15846947/127329414-3f56d681-28b2-47a4-9277-eba437d419d5.jpeg)

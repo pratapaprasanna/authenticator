@@ -14,7 +14,7 @@ class GoogleLoginAdapter(object):
         self.flow = Flow.from_client_secrets_file(
             client_secrets_file=self.google_obj["secrets_file"],
             scopes=self.google_obj["scopes"],
-            redirect_uri="http://127.0.0.1:5000/callback",
+            redirect_uri=self.google_obj["redirect_uri"],
         )
 
     def get_basic_info(self, request, session):
