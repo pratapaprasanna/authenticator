@@ -6,6 +6,11 @@ In signup you have multiple ways of doing it
 - Manual sign-up {where you enter first name, lastname, email etc.}
 - Signup with google/facebook/twitter
 
+## Architecture or Idea
+
+![image](https://user-images.githubusercontent.com/15846947/128823887-0f20f22a-7f38-422e-aa57-fa8e0b4ce9bc.png)
+
+
 ### Setup Requisites
  - Mongo
  - docker
