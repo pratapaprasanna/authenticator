@@ -10,6 +10,7 @@ In signup you have multiple ways of doing it
  - Mongo
  - docker
  - python
+ - Kubernetes (Soon once the working prototype is ready)
 
 ### ENV setup 
  - docker-compose up
