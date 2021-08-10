@@ -1,3 +1,11 @@
+## UseCase
+- Any idea or application a developer wants to develop. He has to put-in efforts to develop an authenticator using which a user signs up to the app. 
+- Authenticator is just that component which adds user to a db and validates if any request is coming from a person belonging to the application.
+
+In signup you have multiple ways of doing it
+- Manual sign-up {where you enter first name, lastname, email etc.}
+- Signup with google/facebook/twitter
+
 ### Setup Requisites
  - Mongo
  - docker
@@ -7,6 +15,9 @@
  - docker-compose up
 
 Post this start making changes to the code they should be reflected and you should be able to see them running.
+
+### Current-state: 
+In the repo you see signup with google until now. Moving forward we should add the ability to signup with facebook/twitter
 
 ## User Journey
 ### Google login
