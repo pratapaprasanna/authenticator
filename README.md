@@ -16,7 +16,7 @@ Some other day we want to work on some idea we should be able to use this authen
 
 ## Stay updated with
 
-- Discord ![NebbyStudios](https://discord.com/channels/876714663059025921/876714833150631996)
+- Discord https://discord.com/channels/876714663059025921/876714833150631996
 
 ### Setup Requisites
  - Mongo
