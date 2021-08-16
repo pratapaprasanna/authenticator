@@ -14,8 +14,9 @@ Some other day we want to work on some idea we should be able to use this authen
 
 ![image](https://user-images.githubusercontent.com/15846947/128825120-878b0e01-3bcf-4004-9add-4c4d50c60d0d.png)
 
+## Share Your Ideas in
 
-
+- Discord NebbyStudios (https://discord.gg/zPPmtnx2)
 
 ### Setup Requisites
  - Mongo
