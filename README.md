@@ -54,8 +54,13 @@ In the repo you see signup with google until now. Moving forward we should add t
 - auth-token generated
 ![4](https://user-images.githubusercontent.com/15846947/130355640-57690aa0-199d-4525-90ae-b7ed345dc228.png)
 
-- How auth-requests made and used
+- How auth-requests verification is done
+
+<img width="1407" alt="Screenshot 2021-08-22 at 6 15 28 PM" src="https://user-images.githubusercontent.com/15846947/130355747-96bf023e-cc02-4510-8fd5-129fb97e7aa6.png">
+
 
 - Behaviour post logging out from google/gmail or from the session
+
+
 ![6](https://user-images.githubusercontent.com/15846947/130355653-12c2a454-dd82-499f-90a9-18f0297ff8e1.png)
 ![7](https://user-images.githubusercontent.com/15846947/130355661-36264201-8e34-4979-9e72-932feeb77b0c.png)
