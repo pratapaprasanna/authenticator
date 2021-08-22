@@ -35,7 +35,7 @@ Post this start making changes to the code they should be reflected and you shou
 
  - ```pip install poetry```
  - ```poetry install```
- - ```poetry run python authenticator/app.py``
+ - ```poetry run python authenticator/app.py```
 
 ### Current-state:
 In the repo you see signup with google until now. Moving forward we should add the ability to signup with facebook/twitter
@@ -44,16 +44,18 @@ In the repo you see signup with google until now. Moving forward we should add t
 ### Google login
  - When user wishes to sign-up
 
-![WhatsApp Image 2021-07-28 at 6 44 16 PM](https://user-images.githubusercontent.com/15846947/127329000-12621164-ba6d-4775-bd40-8c9f4395ed59.jpeg)
+![1](https://user-images.githubusercontent.com/15846947/130355612-d9974e00-f6c2-4418-916d-907d9064b9b4.png)
+
 
 - Authorize with gmail/google login
-![2](https://user-images.githubusercontent.com/15846947/127329338-7e20218f-cccb-4059-817a-c27fdce6510d.jpeg)
+![3](https://user-images.githubusercontent.com/15846947/130355624-3777ce21-7ba2-41b4-9c8c-ef922a4a89ef.png)
 
-- Acknowledgment that the details are stored
-![3](https://user-images.githubusercontent.com/15846947/127329361-2b7d2e96-4a13-4245-b0db-1c6ead685195.jpeg)
+
+- auth-token generated
+![4](https://user-images.githubusercontent.com/15846947/130355640-57690aa0-199d-4525-90ae-b7ed345dc228.png)
+
+- How auth-requests made and used
 
 - Behaviour post logging out from google/gmail or from the session
- cannot show logging out from gmail for personal reasons obviously :D
-
--![logout](https://user-images.githubusercontent.com/15846947/128707098-0c98a932-0bb9-4a51-ab6d-9d372677dc67.png)
--![5](https://user-images.githubusercontent.com/15846947/127329414-3f56d681-28b2-47a4-9277-eba437d419d5.jpeg)
+![6](https://user-images.githubusercontent.com/15846947/130355653-12c2a454-dd82-499f-90a9-18f0297ff8e1.png)
+![7](https://user-images.githubusercontent.com/15846947/130355661-36264201-8e34-4979-9e72-932feeb77b0c.png)
