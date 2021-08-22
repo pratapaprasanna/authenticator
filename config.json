@@ -6,7 +6,7 @@
             "api_base_url":"https://www.googleapis.com/oauth2/v1/",
             "userinfo_endpoint":"https://openidconnect.googleapis.com/v1/userinfo",
             "secrets_file": "client_secret.json",
-            "redirect_uri": "http://127.0.0.1:5000/callback",
+            "redirect_uri": "http://127.0.0.1:5000/googlecallback",
             "google_client_id": "1034883885605-gvj78f1cg3urngprb0jjfr3p0olqh8tr.apps.googleusercontent.com",
             "scopes": [
                 "https://www.googleapis.com/auth/userinfo.profile",
@@ -14,5 +14,8 @@
                 "openid"
             ]
         }
+    },
+    "default":{
+        "expiration_time":"15768000000"
     }
 }
