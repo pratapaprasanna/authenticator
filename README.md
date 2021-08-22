@@ -17,3 +17,5 @@ Post this start making changes to the code they should be reflected and you shou
  - ```poetry install```
  - ```poetry run python authenticator/app.py```
 
+### Documentation
+[here](https://pratapaprasanna.github.io/authenticator/)
