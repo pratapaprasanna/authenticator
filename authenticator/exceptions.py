@@ -3,8 +3,6 @@ import oauthlib
 
 from oslo_log import log as logging
 
-oauthlib.oauth2.rfc6749.errors.InvalidGrantError
-
 
 class OauthException(Exception):
     """
