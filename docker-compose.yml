@@ -12,8 +12,8 @@ services:
     ports:
       - 5000:5000
     networks:
-      main:
-        aliases:
-          - authenticator.svc.cluster.local
+      - default
 networks:
-  main:
+  default:
+      external: false
+      name: auth_default
