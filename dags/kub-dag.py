@@ -42,7 +42,7 @@ with DAG(
     'python_kubernetes_workflow',
     default_args=default_args,
     description='python_kubernetes_workflow',
-    schedule_interval="@once", is_paused_upon_creation=False,
+    schedule_interval="@once", start_date=days_ago(2), is_paused_upon_creation=False,
     tags=['python_kubernetes_workflow'],
 ) as dag:
 
