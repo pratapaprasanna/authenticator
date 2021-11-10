@@ -19,7 +19,7 @@ def _choose_best_model(ti):
 def _training_model():
     return randint(1, 10)
 
-with DAG("unpause_demo_trial", start_date=datetime(2021, 1, 1), schedule_interval="@once", is_paused_upon_creation=True, catchup=False) as dag:
+with DAG("unpause_demo_trial", start_date=datetime(2021, 1, 1), schedule_interval="@once", is_paused_upon_creation=False, catchup=False) as dag:
 
         training_model_A = PythonOperator(
             task_id="training_model_A",
