@@ -48,27 +48,21 @@ with DAG(
 
 
     t1 = KubernetesPodOperator(
-        namespace='default',
         image='python:3.7',
-        image_pull_policy = 'Never',
         cmds=["python","-c", "print('hello task 1 ..................')"],
         labels={"foo": "bar"},
         name="task-1",
         is_delete_operator_pod=True,
-        in_cluster=True,
         task_id="task-1",
         get_logs=True
     )
 
     t2 = KubernetesPodOperator(
-        namespace='default',
         image='python:3.7',
-        image_pull_policy='Never',
         cmds=["python", "-c", "print('hello task 2 ..................')"],
         labels={"foo": "bar"},
         name="task-2",
         is_delete_operator_pod=True,
-        in_cluster=True,
         task_id="task-2",
         get_logs=True
     )
