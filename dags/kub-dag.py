@@ -43,7 +43,6 @@ with DAG(
     default_args=default_args,
     description='python_kubernetes_workflow',
     schedule_interval="@once", start_date=days_ago(2), is_paused_upon_creation=False,
-    in_cluster=True,
     tags=['python_kubernetes_workflow'],
 ) as dag:
 
@@ -56,9 +55,8 @@ with DAG(
         labels={"foo": "bar"},
         name="task-1",
         is_delete_operator_pod=True,
-        in_cluster=False,
+        in_cluster=True,
         task_id="task-1",
-        config_file=os.path.expanduser('~')+"/.kube/config",
         get_logs=True
     )
 
@@ -70,9 +68,8 @@ with DAG(
         labels={"foo": "bar"},
         name="task-2",
         is_delete_operator_pod=True,
-        in_cluster=False,
+        in_cluster=True,
         task_id="task-2",
-        config_file=os.path.expanduser('~')+"/.kube/config",
         get_logs=True
     )
 
