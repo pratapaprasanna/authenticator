@@ -1,71 +1,51 @@
-
-from datetime import timedelta
-from textwrap import dedent
-
-# The DAG object; we'll need this to instantiate a DAG
 from airflow import DAG
-
-# Operators; we need this to operate!
-from airflow.operators.bash import BashOperator
-from airflow.providers.cncf.kubernetes.backcompat.volume_mount import VolumeMount
-from airflow.providers.cncf.kubernetes.backcompat.volume import Volume
-from airflow.utils.dates import days_ago
-
-from airflow.providers.cncf.kubernetes.operators.kubernetes_pod import KubernetesPodOperator
-import os
-# These args will get passed on to each operator
-# You can override them on a per-task basis during operator initialization
+from datetime import datetime, timedelta
+from airflow.contrib.operators.kubernetes_pod_operator import KubernetesPodOperator
+from airflow.operators.dummy_operator import DummyOperator
 
 default_args = {
     'owner': 'airflow',
     'depends_on_past': False,
+    'start_date': datetime.utcnow(),
     'email': ['airflow@example.com'],
     'email_on_failure': False,
     'email_on_retry': False,
     'retries': 1,
-    'retry_delay': timedelta(minutes=5),
-    # 'queue': 'bash_queue',
-    # 'pool': 'backfill',
-    # 'priority_weight': 10,
-    # 'end_date': datetime(2016, 1, 1),
-    # 'wait_for_downstream': False,
-    # 'dag': dag,
-    # 'sla': timedelta(hours=2),
-    # 'execution_timeout': timedelta(seconds=300),
-    # 'on_failure_callback': some_function,
-    # 'on_success_callback': some_other_function,
-    # 'on_retry_callback': another_function,
-    # 'sla_miss_callback': yet_another_function,
-    # 'trigger_rule': 'all_success'
+    'retry_delay': timedelta(minutes=5)
 }
-with DAG(
-    'python_kubernetes_workflow',
-    default_args=default_args,
-    description='python_kubernetes_workflow',
-    schedule_interval="@once", start_date=days_ago(2), is_paused_upon_creation=False,
-    tags=['python_kubernetes_workflow'],
-) as dag:
+
+dag = DAG(
+    'kubernetes_hello_world', default_args=default_args, schedule_interval=timedelta(minutes=10))
 
 
-    t1 = KubernetesPodOperator(
-        image='python:3.7',
-        cmds=["python","-c", "print('hello task 1 ..................')"],
-        labels={"foo": "bar"},
-        name="task-1",
-        is_delete_operator_pod=True,
-        task_id="task-1",
-        get_logs=True
-    )
+start = DummyOperator(task_id='start', dag=dag)
 
-    t2 = KubernetesPodOperator(
-        image='python:3.7',
-        cmds=["python", "-c", "print('hello task 2 ..................')"],
-        labels={"foo": "bar"},
-        name="task-2",
-        is_delete_operator_pod=True,
-        task_id="task-2",
-        get_logs=True
-    )
+passing = KubernetesPodOperator(namespace='default',
+                          image="python:3.6",
+                          cmds=["python","-c"],
+                          arguments=["print('hello world')"],
+                          labels={"foo": "bar"},
+                          name="passing-test",
+                          task_id="passing-task",
+                          get_logs=True,
+                          dag=dag
+                          )
+
+failing = KubernetesPodOperator(namespace='default',
+                          image="ubuntu:16.04",
+                          cmds=["python","-c"],
+                          arguments=["print('hello world')"],
+                          labels={"foo": "bar"},
+                          name="fail",
+                          task_id="failing-task",
+                          get_logs=True,
+                          dag=dag
+                          )
+
+end = DummyOperator(task_id='end', dag=dag)
 
 
-    t1 >> t2
+passing.set_upstream(start)
+failing.set_upstream(start)
+passing.set_downstream(end)
+failing.set_downstream(end)
